@@ -19,14 +19,14 @@ if string.sub(turl, 1, 1) == "/" then
     turl = string.sub(turl, 2)
 end
 
-local res = ngx.location.capture("/short_url", {
+local res = ngx.location.capture("/short_urls", {
                                    method = ngx.HTTP_GET,
                                    args = {tinyurl=turl},
                                    body = nil
                                })
 
 if res.status == 200 then
-    ngx.log(ngx.INFO, string.format("short_url response:%s", res.body))
+    ngx.log(ngx.INFO, string.format("short_urls response:%s", res.body))
     local body_json = cjson.decode(res.body)
     if body_json and body_json.status == 200 then
         ngx.header.location = body_json.longurl
