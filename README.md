@@ -4,4 +4,4 @@
 
 ## Depends
 
-* OpenResty
+* [OpenResty](http://openresty.org/en/installation.html)
